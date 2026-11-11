@@ -112,25 +112,37 @@ market-basket-analysis/
 │
 ├── data/
 │   ├── raw/
+│   │   └── Online Retail.xlsx
+│   │
 │   ├── processed/
+│   │   ├── online_retail_clean.xlsx
+│   │   ├── basket_matrix.xlsx
+│   │   └── customer_features.xlsx
+│   │
 │   └── external/
+│       └── sentiment_labelled_sentences/
 │
 ├── notebooks/
-│   ├── 01_KDD_EDA.ipynb
-│   ├── 02_Preprocessing_PCA.ipynb
-│   ├── 03_Decision_Trees.ipynb
-│   ├── 04_Advanced_Models.ipynb
-│   ├── 05_Association_Rules.ipynb
-│   ├── 06_Clustering.ipynb
-│   └── 07_NLP_TimeSeries_Graph_XAI.ipynb
+│   ├── explorarea_datelor.ipynb
+│   ├── pregatirea_datelor_PCA.ipynb
+│   ├── arbori_de_decizie.ipynb
+│   ├── modele_de_clasificare.ipynb
+│   ├── apriori_FP_Growth.ipynb
+│   ├── clustering_anomalii.ipynb
+│   └── analize_complementare.ipynb
 │
 ├── src/
 │   └── functions.py
 │
 ├── figures/
+│
 ├── results/
+│
 ├── report/
+│   └── raport_market_basket_analysis.pdf
+│
 └── presentation/
+    └── prezentare_market_basket.pptx
 ```
 
 Structura urmărește organizarea recomandată pentru proiect.
