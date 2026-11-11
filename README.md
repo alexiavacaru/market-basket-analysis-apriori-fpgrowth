@@ -1,173 +1,107 @@
-# Market Basket Analysis: Descoperirea tiparelor de cumpărare prin Apriori și FP-Growth
+# market basket analysis – descoperirea tiparelor de cumpărare prin Apriori și FP-Growth
 
-## 1. Despre proiect
+## despre proiect
 
-Comportamentul de cumpărare al consumatorilor reprezintă o sursă importantă de informații pentru înțelegerea cererii și fundamentarea deciziilor comerciale. Datele generate de tranzacțiile unui magazin pot evidenția nu doar produsele preferate de clienți, ci și relațiile dintre produsele achiziționate în cadrul aceleiași comenzi.
+În acest proiect analizăm comportamentul de cumpărare al clienților unui magazin online, pornind de la date tranzacționale reale.
 
-Acest proiect urmărește analiza tiparelor de cumpărare prin aplicarea tehnicilor de Data Mining asupra unui set de date tranzacționale. Accentul este pus pe identificarea produselor cumpărate frecvent împreună, utilizând algoritmii **Apriori** și **FP-Growth**, precum și pe interpretarea regulilor de asociere rezultate.
+Ne interesează în special produsele cumpărate împreună și modul în care aceste relații pot fi folosite pentru a înțelege mai bine obiceiurile de cumpărare.
 
-Analiza este completată prin metode de explorare a datelor, clasificare, clustering, detectare a anomaliilor și alte tehnici de extragere a cunoștințelor, pentru a construi o perspectivă mai amplă asupra comportamentului de cumpărare.
+Pentru identificarea tiparelor frecvente utilizăm algoritmii Apriori și FP-Growth, iar regulile de asociere obținute sunt analizate din perspectivă economică.
 
-Proiectul urmărește transformarea datelor brute în informații relevante economic, care pot susține decizii privind recomandările de produse, organizarea ofertelor și identificarea oportunităților comerciale.
+Proiectul face parte dintr-o analiză mai amplă de Data Mining, care include explorarea și pregătirea datelor, clasificare, clustering, detectarea anomaliilor, serii de timp, analiza textului și a grafurilor.
 
-## 2. Motivația alegerii temei
+Ne propunem să folosim aceste metode într-un proces comun, astfel încât rezultatele să contribuie la înțelegerea aceleiași probleme economice.
 
-În comerțul modern, volumul mare de tranzacții face dificilă identificarea manuală a relațiilor dintre produse și a comportamentelor recurente de cumpărare. Metodele de Data Mining permit analizarea sistematică a acestor date și descoperirea unor tipare care nu sunt evidente la o examinare directă.
+## motivația alegerii temei
 
-Alegerea temei *Market Basket Analysis* pornește de la interesul pentru aplicabilitatea practică a algoritmilor de asociere în domeniul economic. Identificarea produselor cumpărate împreună poate contribui la formularea unor ipoteze privind preferințele consumatorilor și la dezvoltarea unor strategii comerciale bazate pe date.
+Am ales această temă deoarece datele despre cumpărături pot oferi informații care nu sunt evidente atunci când analizăm fiecare produs separat.
 
-Apriori și FP-Growth sunt două metode consacrate pentru identificarea seturilor frecvente de produse. Compararea acestora oferă posibilitatea de a analiza atât rezultatele obținute, cât și diferențele dintre abordările algoritmice.
+De exemplu, două produse pot avea vânzări individuale moderate, dar pot apărea frecvent în aceeași comandă. Identificarea unor astfel de relații poate fi utilă pentru recomandarea produselor complementare, organizarea ofertelor sau analiza preferințelor clienților.
 
-Tema permite, de asemenea, integrarea mai multor tehnici de analiză într-un proces coerent, de la pregătirea datelor până la interpretarea economică a rezultatelor.
+Analiza coșului de cumpărături reprezintă o aplicație cunoscută a regulilor de asociere. Algoritmul Apriori, prezentat de Agrawal și Srikant (1994), și algoritmul FP-Growth, propus de Han, Pei și Yin (2000), urmăresc identificarea seturilor frecvente, dar folosesc abordări diferite.
 
-## 3. Problema economică
+Am considerat interesant să comparăm aceste metode pe același set de date, pentru a observa dacă obținem aceleași combinații de produse și cum diferă timpul necesar procesării.
 
-Problema analizată constă în identificarea relațiilor dintre produsele achiziționate în cadrul tranzacțiilor comerciale și evaluarea modului în care aceste relații pot fi utilizate pentru fundamentarea deciziilor economice.
+Tema ne permite să aplicăm metodele studiate la Data Mining într-un context economic concret și să înțelegem cum pot fi transformate rezultatele unei analize în recomandări comerciale.
 
-Analiza urmărește să răspundă unei întrebări centrale:
+## problema economică și obiectivele
 
-**Cum pot fi utilizate tiparele de cumpărare identificate prin Data Mining pentru a susține deciziile comerciale ale unui magazin?**
+Problema de la care pornim este identificarea relațiilor dintre produsele cumpărate în cadrul aceleiași tranzacții.
 
-Pentru investigarea acestei probleme sunt analizate frecvența achizițiilor, asocierile dintre produse, caracteristicile tranzacțiilor și, în măsura în care datele permit, diferențele dintre comportamentele de cumpărare.
+Scopul principal este să descoperim tipare de cumpărare și să analizăm în ce măsură acestea pot susține decizii comerciale.
 
-## 4. Scopul și obiectivele proiectului
+Pentru aceasta, ne propunem:
 
-### Scopul general
+- să explorăm și să pregătim datele tranzacționale;
+- să identificăm produsele și combinațiile cumpărate frecvent;
+- să aplicăm Apriori și FP-Growth și să comparăm rezultatele;
+- să evaluăm regulile de asociere prin support, confidence și lift;
+- să analizăm comportamentul de cumpărare și prin alte metode de Data Mining;
+- să interpretăm rezultatele și să formulăm recomandări economice.
 
-Identificarea și interpretarea tiparelor de cumpărare din date tranzacționale prin utilizarea algoritmilor Apriori și FP-Growth, în cadrul unui proces integrat de Data Mining.
+## întrebări de cercetare
 
-### Obiective specifice
+Pe parcursul analizei încercăm să răspundem la următoarele întrebări:
 
-1. Explorarea și pregătirea unui set de date tranzacționale pentru analiză.
-2. Identificarea produselor și combinațiilor de produse care apar frecvent în tranzacții.
-3. Generarea și evaluarea regulilor de asociere utilizând indicatori precum support, confidence și lift.
-4. Compararea algoritmilor Apriori și FP-Growth din perspectiva rezultatelor și a eficienței computaționale.
-5. Investigarea comportamentului de cumpărare prin metode complementare de Data Mining.
-6. Interpretarea economică a rezultatelor și formularea unor recomandări bazate pe date.
+- Ce produse sunt cumpărate cel mai frecvent împreună?
+- Ce reguli de asociere sunt relevante pentru înțelegerea comportamentului de cumpărare?
+- Ce diferențe există între Apriori și FP-Growth?
+- Care dintre cei doi algoritmi este mai eficient pentru datele analizate?
+- Pot fi identificate grupuri de clienți cu obiceiuri de cumpărare asemănătoare?
+- Cum evoluează vânzările în timp?
+- Există tranzacții sau comportamente neobișnuite?
+- Ce recomandări comerciale pot fi formulate pe baza rezultatelor?
 
-## 5. Întrebări de cercetare
+## datele utilizate
 
-Analiza este orientată de următoarele întrebări:
+Folosim setul de date **Online Retail**, disponibil în UCI Machine Learning Repository.
 
-- Care sunt produsele cumpărate cel mai frecvent?
-- Ce combinații de produse apar în mod repetat în tranzacții?
-- Ce reguli de asociere indică relații relevante între produse?
-- Cum diferă rezultatele obținute prin Apriori și FP-Growth?
-- Care dintre cei doi algoritmi este mai eficient pentru setul de date analizat?
-- Pot fi identificate categorii distincte de comportament de cumpărare?
-- Există tranzacții sau comportamente neobișnuite care necesită o analiză separată?
-- Cum pot fi transformate rezultatele în recomandări comerciale concrete?
+Acesta conține tranzacții ale unui comerciant online din Regatul Unit, înregistrate în perioada 1 decembrie 2010 – 9 decembrie 2011.
 
-Răspunsurile vor fi formulate pe baza rezultatelor obținute în urma implementării și evaluării metodelor utilizate.
+Setul de date include informații despre:
 
-## 6. Setul de date
+- identificatorul tranzacției (`InvoiceNo`);
+- codul produsului (`StockCode`);
+- descrierea produsului (`Description`);
+- cantitatea cumpărată (`Quantity`);
+- data tranzacției (`InvoiceDate`);
+- prețul unitar (`UnitPrice`);
+- identificatorul clientului (`CustomerID`);
+- țara clientului (`Country`).
 
-Pentru realizarea analizei este propus setul de date **Online Retail**, disponibil în UCI Machine Learning Repository.
+Aceste variabile permit reconstruirea coșurilor de cumpărături, calcularea valorii tranzacțiilor și analiza comportamentului clienților.
 
-Acesta conține tranzacții realizate de un comerciant online din Regatul Unit, în perioada 1 decembrie 2010 – 9 decembrie 2011.
+Înainte de aplicarea algoritmilor, verificăm valorile lipsă, duplicatele, tranzacțiile anulate și observațiile neobișnuite.
 
-Sursa oficială:
+Datele originale sunt păstrate separat de cele procesate.
 
-[UCI Machine Learning Repository – Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail)
+**sursa datasetului:** [Online Retail – UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail)
 
-Setul de date include următoarele variabile:
+## metodologia
 
-- **InvoiceNo** – identificatorul tranzacției;
-- **StockCode** – codul produsului;
-- **Description** – descrierea produsului;
-- **Quantity** – cantitatea înregistrată;
-- **InvoiceDate** – data și ora tranzacției;
-- **UnitPrice** – prețul unitar;
-- **CustomerID** – identificatorul clientului;
-- **Country** – țara asociată clientului.
+Analiza urmărește etapele KDD și CRISP-DM, pornind de la înțelegerea problemei economice și ajungând la interpretarea rezultatelor.
 
-Aceste variabile permit analiza produselor achiziționate împreună, a valorii tranzacțiilor și a distribuției cumpărăturilor în timp.
+Începem cu analiza exploratorie a datelor (EDA), pentru a observa distribuțiile, valorile lipsă, caracteristicile tranzacțiilor și eventualele probleme de calitate a datelor.
 
-Înaintea aplicării algoritmilor, datele vor fi verificate pentru identificarea valorilor lipsă, a duplicatelor, a tranzacțiilor anulate și a altor înregistrări care pot influența rezultatele.
+Continuăm cu preprocesarea, transformarea variabilelor și reducerea dimensionalității prin PCA, acolo unde este relevantă.
 
-Pentru analiza regulilor de asociere, tranzacțiile vor fi transformate într-o matrice de tip tranzacție–produs, care indică prezența sau absența fiecărui produs într-o comandă.
+Pentru clasificare, definim o problemă predictivă pornind de la informațiile disponibile în dataset. Comparăm arbori de decizie și modele suplimentare, evaluăm performanța acestora și analizăm factorii care influențează predicțiile.
 
-Datele originale vor fi păstrate separat de versiunile procesate, pentru a asigura trasabilitatea transformărilor.
+Partea centrală a proiectului este analiza regulilor de asociere. Transformăm datele într-o matrice tranzacție–produs și aplicăm Apriori și FP-Growth în condiții comparabile.
 
-## 7. Metodologie
+Evaluăm regulile prin support, confidence și lift, completate de indicatori precum leverage și conviction. Urmărim atât relevanța relațiilor identificate, cât și diferențele dintre algoritmi.
 
-Analiza este organizată conform etapelor **Knowledge Discovery in Databases (KDD)** și cadrului metodologic **CRISP-DM**, care oferă o structură pentru desfășurarea proiectelor de analiză a datelor.
+Pentru a completa analiza, folosim metode de clustering pentru gruparea observațiilor, tehnici de detectare a anomaliilor și modele pentru analiza evoluției vânzărilor în timp.
 
-### 7.1. Înțelegerea problemei și a datelor
+Investigăm și informațiile textuale disponibile, precum și relațiile dintre produse reprezentate sub forma unui graf.
 
-Prima parte urmărește definirea problemei economice, identificarea obiectivelor și familiarizarea cu structura setului de date.
+În cazul modelelor predictive, utilizăm metode de explicabilitate (XAI), iar interpretarea finală ține cont de aspectele etice, de posibilele erori și de limitele datelor.
 
-Vor fi analizate dimensiunea datasetului, tipurile variabilelor, distribuțiile, valorile lipsă și eventualele particularități ale tranzacțiilor.
+Componenta Big Data este abordată prin prezentarea posibilităților de procesare distribuită, inclusiv utilizarea Apache Spark.
 
-Analiza exploratorie va include statistici descriptive și reprezentări grafice relevante pentru înțelegerea comportamentului de cumpărare.
+La final, reunim rezultatele pentru a formula concluzii și recomandări economice susținute de analiză.
 
-### 7.2. Pregătirea și transformarea datelor
-
-Datele vor fi curățate și transformate în funcție de cerințele fiecărei metode.
-
-Vor fi investigate valorile lipsă, duplicatele, observațiile extreme și necesitatea aplicării unor transformări numerice sau categoriale.
-
-Pentru metodele care utilizează variabile numerice vor fi analizate tehnici de scalare și reducere a dimensionalității, inclusiv **Principal Component Analysis (PCA)**.
-
-Pentru algoritmii de asociere, datele vor fi organizate la nivel de tranzacție, astfel încât fiecare comandă să poată fi reprezentată prin produsele pe care le conține.
-
-### 7.3. Analiza regulilor de asociere
-
-Componenta principală a proiectului constă în aplicarea algoritmilor **Apriori** și **FP-Growth** pentru identificarea seturilor frecvente de produse.
-
-Apriori explorează combinațiile de produse prin generarea și verificarea succesivă a seturilor candidate.
-
-FP-Growth utilizează o reprezentare compactă a tranzacțiilor, evitând generarea explicită a tuturor candidaților în aceeași manieră ca Apriori.
-
-Pentru comparabilitate, ambii algoritmi vor fi aplicați asupra aceleiași reprezentări a datelor și vor utiliza praguri echivalente.
-
-Regulile de asociere vor fi evaluate prin:
-
-- **Support** – proporția tranzacțiilor în care apare o combinație de produse;
-- **Confidence** – proporția tranzacțiilor care conțin antecedentul și includ și consecventul;
-- **Lift** – raportul dintre asocierea observată și cea așteptată în condiții de independență.
-
-Pentru o analiză suplimentară vor fi utilizați și indicatori precum leverage, conviction și cosine sau Jaccard.
-
-Rezultatele vor fi comparate din perspectiva numărului de combinații frecvente, a regulilor identificate și a timpului de execuție.
-
-Regulile selectate vor fi interpretate în raport cu posibile aplicații comerciale, precum recomandările de produse și ofertele complementare.
-
-### 7.4. Analize complementare
-
-Pentru extinderea interpretării economice vor fi utilizate și alte metode de Data Mining.
-
-**Clasificarea** va permite investigarea unei probleme predictive definite pe baza variabilelor disponibile. Vor fi analizate metode bazate pe arbori de decizie și algoritmi suplimentari de clasificare, iar performanța acestora va fi evaluată prin indicatori adecvați.
-
-**Clusteringul** va fi utilizat pentru identificarea unor grupuri de observații cu caracteristici similare, prin metode precum K-Means, K-Medoids, clustering ierarhic și DBSCAN.
-
-**Detectarea anomaliilor** va urmări identificarea tranzacțiilor sau comportamentelor neobișnuite, utilizând metode statistice și algoritmice.
-
-**Analiza seriilor de timp** va examina evoluția temporală a unor indicatori economici derivați din tranzacții, precum valoarea vânzărilor.
-
-**Analiza textului (NLP)** va fi realizată în limita informațiilor textuale disponibile și a relevanței acestora pentru problema economică. Eventualele analize care necesită texte suplimentare vor utiliza surse documentate separat.
-
-**Analiza grafurilor** va permite reprezentarea relațiilor dintre produse sub forma unei rețele și investigarea structurii acesteia prin indicatori specifici.
-
-**Explicabilitatea modelelor (XAI)** va contribui la interpretarea factorilor care influențează predicțiile obținute prin clasificare.
-
-Vor fi discutate și posibilitățile de extindere a analizei către volume mari de date, prin instrumente precum Apache Spark.
-
-### 7.5. Evaluarea și interpretarea rezultatelor
-
-Rezultatele fiecărei metode vor fi evaluate prin indicatori corespunzători.
-
-În cazul clasificării vor fi analizate performanța predictivă, capacitatea de generalizare și eventualele dezechilibre dintre clase.
-
-Pentru clustering vor fi utilizate criterii de evaluare a separării și coeziunii grupurilor, alături de interpretarea caracteristicilor acestora.
-
-Pentru regulile de asociere, accentul va fi pus pe relevanța indicatorilor și pe utilitatea economică a relațiilor identificate.
-
-Interpretarea finală va urmări corelarea rezultatelor obținute prin metode diferite, evitând tratarea acestora ca analize independente.
-
-## 8. Structura proiectului
-
-Repository-ul este organizat astfel încât datele, codul, rezultatele și documentația să fie păstrate separat.
+## structura proiectului
 
 ```text
 market-basket-analysis/
@@ -182,13 +116,13 @@ market-basket-analysis/
 │   └── external/
 │
 ├── notebooks/
-│   ├── 01_EDA_Preprocessing.ipynb
-│   ├── 02_PCA.ipynb
-│   ├── 03_Classification.ipynb
-│   ├── 04_Association_Rules.ipynb
-│   ├── 05_Clustering_Anomalies.ipynb
-│   ├── 06_Time_Series.ipynb
-│   └── 07_NLP_Graph_XAI.ipynb
+│   ├── 01_KDD_EDA.ipynb
+│   ├── 02_Preprocessing_PCA.ipynb
+│   ├── 03_Decision_Trees.ipynb
+│   ├── 04_Advanced_Models.ipynb
+│   ├── 05_Association_Rules.ipynb
+│   ├── 06_Clustering.ipynb
+│   └── 07_NLP_TimeSeries_Graph_XAI.ipynb
 │
 ├── src/
 │   └── functions.py
@@ -199,203 +133,84 @@ market-basket-analysis/
 └── presentation/
 ```
 
-### Descrierea directoarelor
+Structura urmărește organizarea recomandată pentru proiect.
 
-**data/** conține seturile de date originale, procesate și eventualele surse auxiliare.
+Folderul `data/` conține datele originale, procesate și eventualele seturi auxiliare.
 
-**notebooks/** conține analizele realizate în Python, organizate în ordinea logică a proiectului.
+În `notebooks/` sunt organizate analizele realizate în Python, iar `src/` conține funcțiile reutilizabile.
 
-**src/** include funcțiile reutilizabile pentru pregătirea datelor, evaluarea modelelor și generarea rezultatelor.
+Graficele și rezultatele sunt salvate în `figures/` și `results/`, iar raportul și prezentarea finală sunt păstrate separat.
 
-**figures/** este destinat reprezentărilor grafice.
+## tehnologii utilizate
 
-**results/** conține rezultatele analitice exportate, inclusiv tabelele comparative și regulile de asociere.
+Proiectul este realizat în Python.
 
-**report/** conține raportul final al proiectului.
+Bibliotecile principale sunt:
 
-**presentation/** include materialele utilizate pentru prezentarea rezultatelor.
+- `pandas` și `numpy` – prelucrarea datelor;
+- `matplotlib` și `seaborn` – vizualizare;
+- `mlxtend` – Apriori, FP-Growth și reguli de asociere;
+- `scikit-learn` – PCA, clasificare, clustering și evaluare;
+- `xgboost` – modele de clasificare;
+- `statsmodels` – serii de timp;
+- `nltk` – prelucrarea textului;
+- `networkx` – analiza grafurilor;
+- `shap` – explicabilitatea modelelor.
 
-Structura poate fi adaptată pe parcursul implementării, cu păstrarea separării dintre date, cod și rezultate.
+Lista bibliotecilor necesare se găsește în `requirements.txt`.
 
-## 9. Tehnologii și biblioteci
+## instalare și rulare
 
-Implementarea este realizată în **Python**, utilizând biblioteci pentru prelucrarea datelor, învățare automată și vizualizare.
+Proiectul poate fi rulat în Python, folosind Jupyter Notebook sau JupyterLab.
 
-Principalele instrumente avute în vedere sunt:
-
-- **pandas** – manipularea și analiza datelor;
-- **NumPy** – operații numerice;
-- **Matplotlib** și **Seaborn** – vizualizare;
-- **scikit-learn** – clasificare, clustering, PCA și evaluare;
-- **mlxtend** – Apriori, FP-Growth și reguli de asociere;
-- **SciPy** – metode statistice;
-- **statsmodels** – analiza seriilor de timp;
-- **NetworkX** – analiza grafurilor;
-- **SHAP** – interpretabilitatea modelelor;
-- **NLTK** – prelucrarea textului.
-
-În funcție de implementarea efectivă pot fi utilizate și alte biblioteci, documentate în fișierul `requirements.txt`.
-
-## 10. Instalare și rulare
-
-### 10.1. Descărcarea repository-ului
-
-```bash
-git clone https://github.com/UTILIZATOR/market-basket-analysis.git
-cd market-basket-analysis
-```
-
-Adresa de mai sus este un exemplu și trebuie înlocuită cu adresa reală a repository-ului.
-
-### 10.2. Crearea unui mediu virtual
-
-```bash
-python -m venv .venv
-```
-
-Activarea mediului virtual pe Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-Activarea pe Linux sau macOS:
-
-```bash
-source .venv/bin/activate
-```
-
-### 10.3. Instalarea dependențelor
+Pentru instalarea bibliotecilor:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 10.4. Pregătirea datelor
-
-Setul de date poate fi descărcat din sursa oficială:
-
-[Online Retail – UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail)
-
-Fișierul original se plasează în directorul:
+Datasetul se descarcă din [sursa oficială UCI](https://archive.ics.uci.edu/dataset/352/online+retail) și se salvează în folderul:
 
 ```text
 data/raw/
 ```
 
-### 10.5. Executarea analizelor
+Notebook-urile se execută în ordinea indicată de numele fișierelor.
 
-Notebook-urile se deschid în Jupyter Notebook sau într-un mediu compatibil și se execută în ordinea indicată de denumirea fișierelor.
+Pentru reproducerea rezultatelor folosim căi relative către fișiere și o valoare fixă pentru `random_state`, acolo unde algoritmii permit acest lucru.
 
-Ordinea generală este:
+Rezultatele sunt salvate în `results/`, iar graficele în `figures/`.
 
-```text
-Încărcarea datelor
-        ↓
-Analiza exploratorie
-        ↓
-Curățarea și transformarea datelor
-        ↓
-PCA și clasificare
-        ↓
-Apriori și FP-Growth
-        ↓
-Clustering și detectarea anomaliilor
-        ↓
-Analize temporale, textuale și de rețea
-        ↓
-Evaluarea și interpretarea rezultatelor
-        ↓
-Concluzii și recomandări economice
-```
+## rezultate urmărite
 
-Fișierele generate în urma analizelor vor fi salvate în directoarele `results/` și `figures/`.
+Ne propunem să obținem reguli de asociere relevante, să comparăm Apriori și FP-Growth și să identificăm informații utile despre comportamentul de cumpărare.
 
-## 11. Rezultate urmărite
+Analizele complementare vor contribui la înțelegerea segmentelor de clienți, a tranzacțiilor neobișnuite și a evoluției vânzărilor.
 
-Prin implementarea proiectului se urmărește obținerea unei imagini structurate asupra relațiilor dintre produsele cumpărate și asupra comportamentului tranzacțional.
+Rezultatele vor fi evaluate și interpretate împreună, nu doar prezentate ca valori numerice.
 
-Rezultatele principale vizate sunt:
+Pe baza acestora vom formula recomandări comerciale concrete, ținând cont de faptul că o asociere între produse nu demonstrează automat o relație de cauzalitate.
 
-- identificarea produselor și combinațiilor de produse frecvente;
-- extragerea regulilor de asociere relevante;
-- compararea performanței algoritmilor Apriori și FP-Growth;
-- identificarea unor grupuri de comportamente similare;
-- evidențierea tranzacțiilor neobișnuite;
-- analiza evoluției unor indicatori economici în timp;
-- interpretarea rezultatelor prin reprezentări grafice și indicatori cantitativi.
+## limite și utilizarea responsabilă a datelor
 
-Rezultatele vor fi prezentate după executarea algoritmilor și vor fi însoțite de explicații privind semnificația și limitele lor.
+Datele provin de la un singur comerciant și acoperă o perioadă limitată, astfel încât rezultatele nu pot fi generalizate automat la alte magazine.
 
-## 12. Relevanță economică
+De asemenea, regulile identificate depind de modul de pregătire a tranzacțiilor și de pragurile alese pentru algoritmi.
 
-Analiza regulilor de asociere poate oferi informații utile pentru înțelegerea relațiilor dintre produsele comercializate.
+În interpretarea rezultatelor vom avea în vedere aceste limite, precum și posibilele erori sau diferențe de reprezentare a anumitor categorii de observații.
 
-În funcție de rezultatele obținute, aceste informații pot fundamenta propuneri privind:
+Datele vor fi utilizate în scop academic, fără încercarea de identificare a persoanelor.
 
-- recomandarea unor produse complementare;
-- dezvoltarea unor oferte comerciale bazate pe combinații de produse;
-- organizarea campaniilor de promovare;
-- identificarea unor categorii de produse cu relații de cumpărare recurente;
-- analiza comportamentelor de consum și a diferențelor dintre segmente.
+## contribuții
 
-O regulă de asociere nu demonstrează, prin ea însăși, existența unei relații cauzale. De aceea, recomandările vor fi formulate cu prudență și raportate la contextul economic al datelor.
+Proiectul este realizat în colaborare, iar activitățile, fișierele dezvoltate și rezultatele obținute de fiecare participant vor fi documentate în fișele individuale de contribuție.
 
-## 13. Limitări și aspecte etice
+Această secțiune va fi completată la finalul implementării, pe baza contribuțiilor efective.
 
-Rezultatele proiectului depind de caracteristicile și calitatea setului de date utilizat.
+## documentație
 
-Datele reflectă activitatea unui anumit comerciant într-o perioadă determinată, astfel încât tiparele identificate nu pot fi generalizate automat la alte magazine sau piețe.
-
-Preprocesarea poate influența rezultatele, în special prin deciziile privind tranzacțiile anulate, valorile lipsă și produsele cu frecvență redusă.
-
-De asemenea, indicatorii utilizați pentru evaluarea regulilor de asociere trebuie interpretați împreună, pentru a evita concluziile bazate exclusiv pe frecvență.
-
-Din perspectivă etică, analiza va urmări utilizarea responsabilă a datelor, limitarea prelucrării informațiilor personale și prezentarea transparentă a metodelor și limitărilor.
-
-Identificatorii clienților vor fi tratați ca variabile tehnice de analiză, fără încercarea de identificare a persoanelor.
-
-## 14. Documentație și livrabile
-
-Repository-ul este destinat să reunească materialele necesare pentru înțelegerea și reproducerea analizei:
-
-- codul Python și notebook-urile utilizate;
-- informații privind sursa și pregătirea datelor;
-- lista dependențelor;
-- reprezentările grafice;
-- rezultatele exportate;
-- raportul final;
-- prezentarea proiectului.
-
-Raportul va detalia metodologia, implementarea, evaluarea rezultatelor și concluziile economice.
-
-Fișierele de date vor fi distribuite numai în măsura permisă de condițiile sursei originale.
-
-## 15. Referințe
-
-1. Chen, D. (2015). *Online Retail*. UCI Machine Learning Repository.  
-   https://doi.org/10.24432/C5BW33
-
-2. Agrawal, R., & Srikant, R. (1994). *Fast Algorithms for Mining Association Rules in Large Databases*. Proceedings of the 20th International Conference on Very Large Data Bases (VLDB), 487–499.
-
-3. Han, J., Pei, J., & Yin, Y. (2000). *Mining Frequent Patterns without Candidate Generation*. Proceedings of the 2000 ACM SIGMOD International Conference on Management of Data, 1–12.  
-   https://doi.org/10.1145/342009.335372
-
-4. Han, J., Kamber, M., & Pei, J. (2011). *Data Mining: Concepts and Techniques* (3rd ed.). Morgan Kaufmann.
-
-5. Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step Data Mining Guide*.
-
-6. Raschka, S. *mlxtend: Frequent Pattern Mining*. Documentație oficială.  
-   https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/
-
-7. scikit-learn Developers. *scikit-learn User Guide*. Documentație oficială.  
-   https://scikit-learn.org/stable/user_guide.html
-
-8. pandas Development Team. *pandas Documentation*.  
-   https://pandas.pydata.org/docs/
-
-9. NetworkX Developers. *NetworkX Documentation*.  
-   https://networkx.org/documentation/stable/
-
-10. Lundberg, S. M., & Lee, S.-I. (2017). *A Unified Approach to Interpreting Model Predictions*. Advances in Neural Information Processing Systems, 30.  
-    https://arxiv.org/abs/1705.07874
+- [Online Retail – UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail)
+- [Apriori – mlxtend](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/)
+- [FP-Growth – mlxtend](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/)
+- [Reguli de asociere – mlxtend](https://rasbt.github.io/mlxtend/user_guide/frequent_patterns/association_rules/)
+- [scikit-learn – documentație oficială](https://scikit-learn.org/stable/user_guide.html)
