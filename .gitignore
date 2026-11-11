@@ -1,1 +1,27 @@
+# Medii virtuale Python
+venv/
+.venv/
 
+# Fisiere temporare Python
+__pycache__/
+*.pyc
+
+# Fisiere temporare Jupyter Notebook
+.ipynb_checkpoints/
+
+# Date originale si procesate
+data/raw/*
+data/processed/*
+data/external/*
+
+# Pastreaza structura folderelor
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# Fisiere temporare ale sistemului
+.DS_Store
+Thumbs.db
+
+# Fisiere cu informatii confidentiale
+.env
