@@ -199,13 +199,11 @@ De asemenea, regulile identificate depind de modul de pregătire a tranzacțiilo
 
 În interpretarea rezultatelor vom avea în vedere aceste limite, precum și posibilele erori sau diferențe de reprezentare a anumitor categorii de observații.
 
-Datele vor fi utilizate în scop academic, fără încercarea de identificare a persoanelor.
-
 ## contribuții
 
-Proiectul este realizat în colaborare, iar activitățile, fișierele dezvoltate și rezultatele obținute de fiecare participant vor fi documentate în fișele individuale de contribuție.
+Proiectul este realizat de trei studenți, cu responsabilități împărțite între pregătirea datelor, implementarea algoritmilor și interpretarea rezultatelor.
 
-Această secțiune va fi completată la finalul implementării, pe baza contribuțiilor efective.
+Contribuțiile individuale vor fi prezentate prin activitățile realizate, notebook-urile dezvoltate și rezultatele obținute de fiecare membru.
 
 ## documentație
 
