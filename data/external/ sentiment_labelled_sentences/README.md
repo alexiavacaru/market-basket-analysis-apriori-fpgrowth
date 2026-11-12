@@ -27,10 +27,5 @@ Folderul data/raw/ conține setul principal Online Retail, data/processed/ conț
 Sursa oficială:
 https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences
 
-DOI:
-https://doi.org/10.24432/C57604
-
-Lucrarea asociată setului de date:
-Kotzias, D., Denil, M., de Freitas, N. și Smyth, P. (2015), From Group to Individual Labels Using Deep Features, KDD 2015.
 
 
