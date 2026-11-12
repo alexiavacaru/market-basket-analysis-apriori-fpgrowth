@@ -1,31 +1,42 @@
-Acest folder conține setul de date Sentiment Labelled Sentences, preluat de la UCI Machine Learning Repository. L-am adăugat în proiect pentru partea de analiză a sentimentelor (NLP).
 
-În proiectul nostru, Online Retail este sursa principală și ne ajută să analizăm ce produse se cumpără împreună și cum cumpără clienții. Totuși, Online Retail nu conține recenzii sau opinii scrise de clienți. De aceea, pentru partea de analiză a textelor, folosim un set de date separat, pe care îl păstrăm în data/external/.
+Acest folder conține setul de date Sentiment Labelled Sentences, preluat de la UCI Machine Learning Repository. Îl folosim în proiectul nostru de Data Mining pentru analiza sentimentelor (NLP), deoarece setul principal, Online Retail, conține informații despre cumpărături, dar nu și recenzii ale clienților.
 
-Ce conține fiecare fișier:
+Ce conține folderul??
 
-- amazon_cells_labelled.txt conține 1.000 de propoziții din recenzii despre produse, în special telefoane și accesorii. Ne ajută să analizăm opinii pozitive și negative despre produse, fiind cel mai apropiat de tema comerțului online.
+Setul include 3.000 de propoziții în limba engleză, împărțite în trei fișiere:
 
-- imdb_labelled.txt conține 1.000 de propoziții din recenzii despre filme. Îl folosim pentru a observa cum funcționează analiza sentimentelor pe texte din alt domeniu.
+* amazon_cells_labelled.txt – 1.000 de recenzii despre produse, în special telefoane și accesorii. Este cel mai apropiat de tema comerțului online.
+* imdb_labelled.txt – 1.000 de recenzii despre filme, folosite pentru a testa analiza sentimentelor într-un alt domeniu.
+* yelp_labelled.txt – 1.000 de recenzii despre restaurante, folosite pentru compararea rezultatelor.
+* readme.txt – documentația originală a setului de date, pe care o păstrăm nemodificată.
 
-- yelp_labelled.txt conține 1.000 de propoziții din recenzii despre restaurante. Îl folosim pentru a compara rezultatele analizei sentimentelor cu cele obținute pe celelalte două surse.
+Fiecare propoziție are o etichetă: 0 = negativ, 1 = pozitiv. Fiecare sursă conține 500 de exemple negative și 500 pozitive.
 
-- readme.txt este documentul original care însoțește setul de date. Explică proveniența recenziilor și semnificația etichetelor. Îl păstrăm nemodificat.
+Cum vom folosi datele
 
-În total sunt 3.000 de propoziții în limba engleză. Fiecare propoziție este urmată de o etichetă: 0 înseamnă sentiment negativ, iar 1 înseamnă sentiment pozitiv. Fiecare dintre cele trei fișiere are 500 de exemple negative și 500 pozitive. Textul și eticheta sunt separate prin TAB.
+* verificăm și curățăm textele – identificăm valorile lipsă, duplicatele și eventualele erori;
+* pregătim datele pentru analiză – transformăm textele în valori numerice folosind TF-IDF;
+* antrenăm un model de clasificare – folosim Logistic Regression sau Naive Bayes pentru a identifica automat sentimentul;
+* evaluăm rezultatele – calculăm accuracy, precision, recall și F1-score și comparăm rezultatele între Amazon, IMDb și Yelp.
 
-Ce vom face cu ele în proiect:
+Legătura cu proiectul nostru
 
-Mai întâi vom încărca fișierele și vom verifica textele, etichetele și eventualele valori lipsă sau duplicate. Apoi vom pregăti propozițiile pentru analiză și le vom transforma în caracteristici numerice, de exemplu cu TF-IDF. Vom antrena un model simplu de clasificare a sentimentelor, cum ar fi Logistic Regression sau Naive Bayes, și vom verifica cât de bine recunoaște opiniile pozitive și negative. Pentru evaluare vom folosi indicatori precum accuracy, precision, recall și F1-score. La final vom compara, dacă este util, rezultatele pentru Amazon, IMDb și Yelp.
+Proiectul nostru analizează datele Online Retail prin mai multe metode de Data Mining:
 
-Această analiză completează proiectul de Data Mining, dar este separată de Market Basket Analysis. Recenziile nu provin de la clienții din Online Retail și nu pot fi asociate direct cu facturile, produsele sau CustomerID-urile din acel fișier.
+* Market Basket Analysis – identificăm produsele cumpărate împreună, folosind Apriori și FP-Growth;
+* analiza clienților – calculăm indicatori precum numărul comenzilor și valoarea cumpărăturilor, pentru segmentarea clienților;
+* analiza sentimentelor (NLP) – folosim setul extern pentru clasificarea recenziilor pozitive și negative.
 
-De ce păstrăm datele în external:
+Analiza NLP completează proiectul, dar este independentă de Online Retail. Recenziile nu aparțin clienților din setul principal și nu pot fi asociate direct cu facturile sau produsele lor.
 
-Folderul data/raw/ conține setul principal Online Retail, data/processed/ conține fișierele prelucrate din acesta, iar data/external/ conține un set suplimentar, provenit din altă sursă. În acest fel, organizarea proiectului este clară și putem arăta de unde vine fiecare analiză.
+De ce păstrăm datele în external
+
+* data/raw/ – datele originale Online Retail;
+* data/processed/ – tranzacțiile curățate, matricea coșurilor și indicatorii clienților;
+* data/external/ – datele suplimentare pentru analiza sentimentelor, provenite dintr-o sursă separată.
+
+Această organizare ne permite să păstrăm separat datele originale, cele prelucrate și cele externe, astfel încât proiectul să fie ușor de urmărit și reprodus.
 
 Sursa oficială:
+
 https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences
-
-
-
