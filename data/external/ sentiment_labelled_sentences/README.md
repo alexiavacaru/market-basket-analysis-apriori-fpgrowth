@@ -1,5 +1,5 @@
 
-Acest folder conține setul de date Sentiment Labelled Sentences, preluat de la UCI Machine Learning Repository. Îl folosim în proiectul nostru de Data Mining pentru analiza sentimentelor (NLP), deoarece setul principal, Online Retail, conține informații despre cumpărături, dar nu și recenzii ale clienților.
+Acest folder conține setul de date Sentiment Labelled Sentences, preluat de la UCI Machine Learning Repository. Îl folosim în proiectul nostru de Data Mining pentru analiza sentimentelor (NLP), deoarece setul principal, Online Retail, conține informații despre cumpărături(facturi, produse, cantități, prețuri și clienți), dar nu și recenzii ale clienților. Dar Online Retail are o limitare: ne arată ce cumpără oamenii, nu și ce părere au despre produse.
 
 Ce conține folderul??
 
