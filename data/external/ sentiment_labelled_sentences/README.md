@@ -18,7 +18,7 @@ Ce vom face cu ele în proiect:
 
 Mai întâi vom încărca fișierele și vom verifica textele, etichetele și eventualele valori lipsă sau duplicate. Apoi vom pregăti propozițiile pentru analiză și le vom transforma în caracteristici numerice, de exemplu cu TF-IDF. Vom antrena un model simplu de clasificare a sentimentelor, cum ar fi Logistic Regression sau Naive Bayes, și vom verifica cât de bine recunoaște opiniile pozitive și negative. Pentru evaluare vom folosi indicatori precum accuracy, precision, recall și F1-score. La final vom compara, dacă este util, rezultatele pentru Amazon, IMDb și Yelp.
 
-Această analiză completează proiectul de Data Mining, dar este separată de Market Basket Analysis. Recenziile nu provin de la clienții din Online Retail și nu pot fi asociate direct cu facturile, produsele sau CustomerID-urile din acel fișier. Nu vom inventa astfel de legături.
+Această analiză completează proiectul de Data Mining, dar este separată de Market Basket Analysis. Recenziile nu provin de la clienții din Online Retail și nu pot fi asociate direct cu facturile, produsele sau CustomerID-urile din acel fișier.
 
 De ce păstrăm datele în external:
 
