@@ -1,5 +1,3 @@
-README – date externe pentru analiza sentimentelor
-
 Acest folder conține setul de date Sentiment Labelled Sentences, preluat de la UCI Machine Learning Repository. L-am adăugat în proiect pentru partea de analiză a sentimentelor (NLP).
 
 În proiectul nostru, Online Retail este sursa principală și ne ajută să analizăm ce produse se cumpără împreună și cum cumpără clienții. Totuși, Online Retail nu conține recenzii sau opinii scrise de clienți. De aceea, pentru partea de analiză a textelor, folosim un set de date separat, pe care îl păstrăm în data/external/.
@@ -35,5 +33,4 @@ https://doi.org/10.24432/C57604
 Lucrarea asociată setului de date:
 Kotzias, D., Denil, M., de Freitas, N. și Smyth, P. (2015), From Group to Individual Labels Using Deep Features, KDD 2015.
 
-Notă: pașii de analiză descriși mai sus sunt cei pe care intenționăm să îi realizăm în proiect, nu rezultate deja obținute.
 
